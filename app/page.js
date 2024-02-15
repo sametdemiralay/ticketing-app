@@ -1,35 +1,35 @@
 import TicketCard from "./(components)/TicketCard";
 
-// const getTickets = async () => {
-//   try {
-//     const res = await fetch(
-//       `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/Tickets`,
-//       {
-//         cache: "no-store",
-//       }
-//     );
+const getTickets = async () => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/Tickets`,
+      {
+        cache: "no-store",
+      }
+    );
 
-//     if (!res.ok) {
-//       throw new Error("Failed to fetch topics");
-//     }
+    if (!res.ok) {
+      throw new Error("Failed to fetch topics");
+    }
 
-//     return res.json();
-//   } catch (error) {
-//     console.log("Error loading topics: ", error);
-//   }
-// };
+    return res.json();
+  } catch (error) {
+    console.log("Error loading topics: ", error);
+  }
+};
 
-const Dashboard = () => {
-  // const { tickets } = await getTickets();
+const Dashboard = async () => {
+  const { tickets } = await getTickets();
 
-  // const uniqueCategories = [
-  //   ...new Set(tickets?.map(({ category }) => category)),
-  // ];
+  const uniqueCategories = [
+    ...new Set(tickets?.map(({ category }) => category)),
+  ];
 
   return (
     <div className="p-5">
       <div>
-        {/* {tickets &&
+        {tickets &&
           uniqueCategories?.map((uniqueCategory, categoryIndex) => (
             <div key={categoryIndex} className="mb-4">
               <h2>{uniqueCategory}</h2>
@@ -45,7 +45,7 @@ const Dashboard = () => {
                   ))}
               </div>
             </div>
-          ))} */}
+          ))}
       </div>
       <h5>MONGODB_URI: {process.env.MONGODB_URI}</h5>
       <h5>NEXT_PUBLIC_BASE_API_URL: {process.env.NEXT_PUBLIC_BASE_API_URL}</h5>
