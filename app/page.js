@@ -2,9 +2,12 @@ import TicketCard from "./(components)/TicketCard";
 
 const getTickets = async () => {
   try {
-    const res = await fetch(`${process.env.MAIN_URL}/api/Tickets`, {
-      cache: "no-store",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/Tickets`,
+      {
+        cache: "no-store",
+      }
+    );
 
     if (!res.ok) {
       throw new Error("Failed to fetch topics");
@@ -45,7 +48,7 @@ const Dashboard = async () => {
           ))}
       </div>
       <h5>MONGODB_URI: {process.env.MONGODB_URI}</h5>
-      <h5>MAIN_URL: {process.env.MAIN_URL}</h5>
+      <h5>NEXT_PUBLIC_BASE_API_URL: {process.env.NEXT_PUBLIC_BASE_API_URL}</h5>
     </div>
   );
 };
