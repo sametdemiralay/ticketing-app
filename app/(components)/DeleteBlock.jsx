@@ -8,14 +8,14 @@ const DeleteBlock = ({ id }) => {
   const router = useRouter();
 
   const deleteTicket = async () => {
-    // const res = await fetch(`http://localhost:3000/api/Tickets/${id}`, {
-    //   method: "DELETE",
-    // });
-    // if (res.ok) {
-    //   router.refresh();
-    // }
+    const res = await fetch(`/api/Tickets/${id}`, {
+      method: "DELETE",
+    });
+    if (res.ok) {
+      router.refresh();
+    }
 
-    console.log("delete");
+    console.log("id: ", id);
   };
 
   return (
