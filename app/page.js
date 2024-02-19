@@ -47,8 +47,6 @@ const Dashboard = async () => {
             </div>
           ))}
       </div>
-      <h5>MONGODB_URI: {process.env.MONGODB_URI}</h5>
-      <h5>NEXT_PUBLIC_BASE_API_URL: {process.env.NEXT_PUBLIC_BASE_API_URL}</h5>
     </div>
   );
 };
